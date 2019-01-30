@@ -1,5 +1,5 @@
-var assetIdencoder = require('cc-assetid-encoder')
-var debug = require('debug')('cc-get-assets-outputs')
+var assetIdencoder = require('digiasset-assetid-encoder')
+var debug = require('debug')('digiasset-get-assets-outputs')
 var _ = require('lodash')
 
 module.exports = function (raw_transaction) {
