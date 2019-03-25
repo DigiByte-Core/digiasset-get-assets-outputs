@@ -13,7 +13,7 @@ module.exports = function (raw_transaction) {
       amount: dadata.amount,
       issueTxid: transaction_data.txid,
       divisibility: dadata.divisibility,
-      lockStatus: daata.lockStatus,
+      lockStatus: dadata.lockStatus,
       aggregationPolicy: dadata.aggregationPolicy
     })
   }

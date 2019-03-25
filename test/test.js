@@ -13,7 +13,7 @@ var issuanceTx = {
     }
   ],
   'vout': [{},{},{}],
-  'ccdata': [
+  'dadata': [
     {
       'payments': [
         {
@@ -85,7 +85,7 @@ var transferTx = {
     }
   ],
   'vout': [{},{},{}],
-  'ccdata': [
+  'dadata': [
     {
       'payments': [
         {
@@ -138,7 +138,7 @@ it('Issuance - should transfer the correct amounts, split according to payments'
 })
 
 it('Issuance - should transfer entire amount to last output when overflow in total amount in payments', function (done) {
-  issuanceTx.ccdata[0].payments = [
+  issuanceTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 100,
@@ -158,7 +158,7 @@ it('Issuance - should transfer entire amount to last output when overflow in tot
 })
 
 it('Issuance - should transfer entire amount to last output there is overflow in total amount, even when first payments can be satisfied', function (done) {
-  issuanceTx.ccdata[0].payments = [
+  issuanceTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 10,
@@ -200,7 +200,7 @@ it('Transfer - should transfer the correct amounts, split according to payments 
 })
 
 it('Transfer - should transfer the entire amount to last output, when there is an overflow in total amount. If assets are aggregatable - should aggregate them together.', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 100,
@@ -221,7 +221,7 @@ it('Transfer - should transfer the entire amount to last output, when there is a
 })
 
 it('Transfer - should transfer correct amounts, when there is an overflow to the same aggregatable assetId asset with a different input', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 10,
@@ -252,7 +252,7 @@ it('Transfer - should transfer correct amounts, when there is an overflow to the
 })
 
 it('Transfer - should transfer correct amounts, when there is an overflow to the same aggregatable assetId asset within the same input', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 13, // that's an overflow, but to the same aggregatable asset-id within the same input
@@ -291,7 +291,7 @@ it('Transfer - should transfer correct amounts, when there is an overflow to the
 })
 
 it('Transfer - should transfer the entire amount to last output, when there is an overflow in total amount. If assets are NOT aggregatable - should keep them separated.', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 100,
@@ -318,7 +318,7 @@ it('Transfer - should transfer the entire amount to last output, when there is a
 })
 
 it('Transfer - should transfer the entire amount to last output, when there is an overflow to another asset which is not aggregatable with the previous asset.', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 13, // that's an overflow
@@ -355,7 +355,7 @@ it('Transfer - should transfer the entire amount to last output, when there is a
 })
 
 it('Transfer - should not have overflow with payment with amount 0', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 10,
@@ -401,7 +401,7 @@ it('Transfer - should not have overflow with payment with amount 0', function (d
 })
 
 it('Transfer - should transfer entire amount to last output when there is a payment to a non existing output', function (done) {
-  transferTx.ccdata[0].payments = [
+  transferTx.dadata[0].payments = [
     {
       'input': 0,
       'amount': 10,
@@ -485,7 +485,7 @@ it('Transfer - should transfer remaining amounts to last output', function (done
       }
     ],
     'vout': [{},{},{}],
-    'ccdata': [
+    'dadata': [
       {
         'payments': [
           {
@@ -578,7 +578,7 @@ it('Burn - should transfer and burn assets', function (done) {
       }
     ],
     'vout': [{},{},{}],
-    'ccdata': [
+    'dadata': [
       {
         'payments': [
           {
@@ -699,7 +699,7 @@ it('Burn - should transfer all assets to last output when there is an overflow',
       }
     ],
     'vout': [{},{},{}],
-    'ccdata': [
+    'dadata': [
       {
         'payments': [
           {

@@ -14,7 +14,7 @@
   "author": "thehobbit85 <thehobbit85@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "digiasset-assetid-encoder": "^0.6.0",
+    "digiasset-assetid-encoder": "^0.7.0",
     "debug": "^2.2.0",
     "lodash": "^4.6.1"
   }
