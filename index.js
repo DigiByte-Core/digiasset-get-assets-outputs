@@ -4,21 +4,21 @@ var _ = require('lodash')
 
 module.exports = function (raw_transaction) {
   var transaction_data = JSON.parse(JSON.stringify(raw_transaction))
-  var ccdata = transaction_data.ccdata[0]
+  var dadata = transaction_data.dadata[0]
   var assets = []
-  if (ccdata.type === 'issuance') {
+  if (dadata.type === 'issuance') {
     transaction_data.vin[0].assets = transaction_data.vin[0].assets || []
     transaction_data.vin[0].assets.unshift({
       assetId: assetIdencoder(transaction_data),
-      amount: ccdata.amount,
+      amount: dadata.amount,
       issueTxid: transaction_data.txid,
-      divisibility: ccdata.divisibility,
-      lockStatus: ccdata.lockStatus,
-      aggregationPolicy: ccdata.aggregationPolicy
+      divisibility: dadata.divisibility,
+      lockStatus: daata.lockStatus,
+      aggregationPolicy: dadata.aggregationPolicy
     })
   }
 
-  var payments = ccdata.payments
+  var payments = dadata.payments
   var overflow = !transfer(assets, payments, transaction_data)
   if (overflow) {
     // transfer failed. transfer all assets in inputs to last output, aggregate those possible
